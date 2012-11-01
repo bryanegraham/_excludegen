@@ -1,0 +1,4 @@
+syntax: glob
+source/_excludegen/bin/*
+*.userprefs
+*.suo
