@@ -89,7 +89,8 @@ namespace ExcludeGenerator.xml
 
             foreach (String className in loadedClasses)
             {
-                if (false == mContext.IncludeClasses.Contains(className))
+                if (false == mContext.IncludeClasses.Contains(className)
+				    && false == mContext.ExcludeClasses.Contains(className))
                 {
                     mContext.ExcludeClasses.Add(className);
                 }
