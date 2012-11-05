@@ -43,7 +43,7 @@ namespace ExcludeGenerator.gui
 
             foreach (string classExclude in mExcludeFile.Context.ExcludeClasses)
             {
-				AddExcludeClass(classExclude);
+				mExcludedClassesList.Items.Add(classExclude);
             }
 
             foreach (string classInclude in mExcludeFile.Context.IncludeClasses)

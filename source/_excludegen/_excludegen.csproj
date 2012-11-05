@@ -42,7 +42,7 @@
     <WarningLevel>4</WarningLevel>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterExecute" />
+        <Command type="AfterBuild" command="python ${ProjectDir}\../scripts/postBuild.py" workingdir="${ProjectDir}" />
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>ExcludeGenerator-d</AssemblyName>
@@ -55,6 +55,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AssemblyName>ExcludeGenerator</AssemblyName>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="python ../scripts/postBuild.py" workingdir="${ProjectDir}" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
