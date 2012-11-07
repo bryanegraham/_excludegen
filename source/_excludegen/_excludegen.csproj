@@ -70,9 +70,6 @@
   </Target>
   -->
   <ItemGroup>
-    <Reference Include="PluginCore">
-      <HintPath>C:\Program Files %28x86%29\FlashDevelop\PluginCore.dll</HintPath>
-    </Reference>
     <Reference Include="SwfOp">
       <HintPath>C:\Program Files %28x86%29\FlashDevelop\SwfOp.dll</HintPath>
     </Reference>
@@ -83,6 +80,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="PluginCore">
+      <HintPath>C:\Program Files %28x86%29\FlashDevelop\PluginCore.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gui\ContextMenuItems.cs" />

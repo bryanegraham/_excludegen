@@ -7,21 +7,19 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Debug|x86.ActiveCfg = Debug|x86
-		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Debug|x86.Build.0 = Debug|x86
 		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Release|x86.ActiveCfg = Release|x86
-		{78101C01-E186-4954-B1DD-DEBB7905FAD8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = _excludegen\_excludegen.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
 		version = 1.0
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
