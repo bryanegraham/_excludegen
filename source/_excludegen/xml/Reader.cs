@@ -21,11 +21,9 @@
 //     distribution.
 //
 using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using PluginCore.Helpers;
 using System.IO;
-using System.Diagnostics;
+using System.Xml;
 
 namespace ExcludeGenerator.xml
 {
@@ -57,50 +55,60 @@ namespace ExcludeGenerator.xml
                     bool excludeClosed = false;
                     bool includeOpened = false;
                     bool includeClosed = false;
+					List<string> excludeAssets = context.ExcludeClasses;
+					List<string> includeAssets = context.IncludeClasses; 
 
-                    while (file.Peek() != -1)
-                    {
-                        string line = file.ReadLine();
+					while (file.Peek() != -1)
+					{
+						string line = file.ReadLine();
+						
+						if (line == "<excludeAssets>")
+						{
+							excludeOpened = true;
+						}
+						else if (line == "</excludeAssets>")
+						{
+							excludeClosed = true;
+						}
+						else if (line == "<includeAssets>")
+						{
+							includeOpened = true;
+						}
+						else if (line == "</includeAssets>")
+						{
+							includeClosed = true;
 
-                        if (line == "<excludeAssets>")
-                        {
-                            excludeOpened = true;
-                        }
-                        else if (line == "</excludeAssets>")
-                        {
-                            excludeClosed = true;
-                        }
-                        else if (line == "<includeAssets>")
-                        {
-                            includeOpened = true;
-                        }
-                        else if (line == "</includeAssets>")
-                        {
-                            includeClosed = true;
-                        }
-                        else if (line.Contains(kAssetTag))
-                        {
-                            int firstQuote = line.IndexOf('\"');
-                            int lastQuote = line.LastIndexOf('\"');
-
-                            int classNameLength = lastQuote - firstQuote;
-                            string className = line.Substring(firstQuote + 1, classNameLength - 1);
-
-
-                            if (excludeOpened && !excludeClosed)
-                            {
-                                context.ExcludeClasses.Add(className);
-                            }
-                            else if (includeOpened && !includeClosed)
-                            {
-                                context.IncludeClasses.Add(className);
-                            }
-                        }
-                        else
-                        {
-                            throw new System.Exception();
-                        }
-                    }
+							excludeAssets.Sort();
+							includeAssets.Sort();
+								// Export a sorted list, for flavour sake
+						}
+						else if (line.Contains(kAssetTag))
+						{
+							int firstQuote = line.IndexOf('\"');
+							int lastQuote = line.LastIndexOf('\"');
+							
+							int classNameLength = lastQuote - firstQuote;
+							string className = line.Substring(firstQuote + 1, classNameLength - 1);
+							
+							
+							if (excludeOpened && !excludeClosed
+							    && false == excludeAssets.Contains(className))
+							{
+								excludeAssets.Add(className);
+							}
+							else if (includeOpened && !includeClosed
+							         && false == includeAssets.Contains(className))
+							{
+								excludeAssets.Remove(className);
+								// Dumbly call remove on this entry, just
+								// in case it is on the exclude list too
+								// Adds compelxity, but this will vanish
+								// during the planned tree refactor...
+								
+								includeAssets.Add(className);
+							}
+						}
+					}
 				}
 				catch (System.Exception ex)
                     // Since this is not a proper XML file we can be pretty loose on error 
