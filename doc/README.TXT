@@ -2,8 +2,8 @@
 _excludegen
 
 	Author: 		Bryan Graham <bryanegraham@gmail.com>
-	Version: 		1.0
-	Release Date: 	2012.10.31
+	Version: 		1.2
+	Release Date: 	2012.11.06
 
 ================================================================================
 
@@ -67,4 +67,19 @@ freely, subject to the following restrictions:
    3. This notice may not be removed or altered from any source
    distribution.
 
+----------
+Change Log
+----------
 
+Version 1.2:
+ - made xml.Reader a bit more tolerant to formatting errors, shouldn't throw any
+   more fits when you have comments and/or blank lines
+ - fixed an issue where exclude assets could overwrite include assets introduced
+   in version 1.1
+
+Version 1.1:
+ - Cleaned up gui logic to remove duplicate entries is a less performance 
+   impacting manner, and one more reliable than before
+
+Version 1.0:
+ - Initial Version
