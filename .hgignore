@@ -2,3 +2,4 @@ syntax: glob
 source/_excludegen/bin/*
 *.userprefs
 *.suo
+source/_excludegen/obj/*
