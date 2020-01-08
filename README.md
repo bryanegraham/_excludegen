@@ -3,7 +3,7 @@ _excludegen
 Plugin for FlashDevelop4 that generates _exclude files for you from a simple gui.
 
 # Holy Cow this is old as heck
-I know! I wrote this back in 2012 because it was a bit of a paind for what I was doing at the time.
+I know! I wrote this back in 2012 because it was a bit of a pain for what I was doing at the time.
 
 This would have just been left alone were it not for BitBucket discontinuing mercurial support.
 
